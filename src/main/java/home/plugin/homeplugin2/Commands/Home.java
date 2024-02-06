@@ -4,7 +4,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -42,7 +41,7 @@ public class Home implements CommandExecutor{
                     cooldown.put(player.getUniqueId(), System.currentTimeMillis()-10000);
                 }
             } else
-                player.sendMessage("You can't teleport home for another " + (10 - ((System.currentTimeMillis() - cooldown.get(player.getUniqueId())) / 1000)) + " seconds!");
+                player.sendMessage("§eYou can't teleport home for another " + (10 - ((System.currentTimeMillis() - cooldown.get(player.getUniqueId())) / 1000)) + " seconds!");
         }
         return true;
     }
