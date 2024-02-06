@@ -1,6 +1,6 @@
 package home.plugin.homeplugin2;
-package org.bukkit.entity;
 
+import home.plugin.homeplugin2.Commands.Home;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class HomePlugin2 extends JavaPlugin {
@@ -9,7 +9,7 @@ public final class HomePlugin2 extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
 
-
+        getCommand("home").setExecutor(new Home());
     }
     @Override
     public void onDisable() {
