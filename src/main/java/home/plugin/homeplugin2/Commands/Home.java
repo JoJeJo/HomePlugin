@@ -67,6 +67,7 @@ public class Home implements CommandExecutor {
                         } */
                     }
                     // Teleport
+                    sender.sendMessage("Teleporting Now!");
                     player.teleportAsync(player.getBedSpawnLocation());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
