@@ -1,4 +1,5 @@
 Configurations coming soon.
+Messages when teleportation is canceled coming soon.
 --
 CHANGELOG
 --
