@@ -1,5 +1,7 @@
 Configurations coming soon.
+--
 CHANGELOG
+--
 Feb 6 2024
 - Created /home command
 - Created permissions
