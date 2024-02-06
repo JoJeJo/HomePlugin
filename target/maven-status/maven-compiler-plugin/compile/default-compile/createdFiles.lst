@@ -1,4 +1,6 @@
-home\plugin\homeplugin2\Commands\Home.class
 home\plugin\homeplugin2\background\PlayerEventHandler.class
-home\plugin\homeplugin2\background\Timer.class
 home\plugin\homeplugin2\HomePlugin2.class
+home\plugin\homeplugin2\Commands\Home.class
+home\plugin\homeplugin2\background\Timer.class
+home\plugin\homeplugin2\Commands\HomeHelp.class
+home\plugin\homeplugin2\Commands\HomeInfo.class
