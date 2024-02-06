@@ -45,14 +45,13 @@ public class Home implements CommandExecutor {
                 cooldown.put(player.getUniqueId(), System.currentTimeMillis());
                 try {
                     for (int i=0; i<5;i++) {
-                        double healthi = player.getHealth();
+                        double health1 = player.getHealth();
                         @NotNull Location location1 = player.getLocation();
-                        System.out.println("Clap your hands!");
                         sender.sendMessage("Teleporting in" + (6-i) + "!");
                         Thread.sleep(1000);
-                        double healthf = player.getHealth();
+                        double health2 = player.getHealth();
                         @NotNull Location location2 = player.getLocation();
-                        if ((healthi == healthf) && (location2 == location1)) {
+                        if ((health1 == health2) && (location1 == location2)) {
                             return true;
                         }
                         else {
