@@ -29,6 +29,7 @@ public class Home implements CommandExecutor {
 
             if (player.getBedSpawnLocation() == null) {
                 sender.sendMessage("§eYou have no set spawn. Right-Click a bed to set your spawn.");
+                cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
                 return false;
             }
             if (player.getWorld().getName().equals("world_nether")) {
@@ -44,18 +45,20 @@ public class Home implements CommandExecutor {
             if (!cooldown.containsKey(player.getUniqueId()) || System.currentTimeMillis() - cooldown.get(player.getUniqueId()) > 10000) {
                 cooldown.put(player.getUniqueId(), System.currentTimeMillis());
                 try {
-                    for (int i=0; i<5;i++) {
+                    for (int i = 0; i < 5; i++) {
                         double health1 = player.getHealth();
                         @NotNull Location location1 = player.getLocation();
-                        sender.sendMessage("Teleporting in" + (6-i) + "!");
+                        sender.sendMessage("Teleporting in " + (5 - i) + "!");
                         Thread.sleep(1000);
                         double health2 = player.getHealth();
                         @NotNull Location location2 = player.getLocation();
-                        if ((health1 == health2) && (location1 == location2)) {
-                            return true;
+                        if (!((health1 == health2))) {
+                            sender.sendMessage("You can not take damage when teleporting home.");
+                            return false;
                         }
-                        else {
-                            break;
+                        if (!((location1 == location2))) {
+                            sender.sendMessage("You need to stand still when teleporting home.");
+                            return false;
                         }
                     }
                     player.teleportAsync(player.getBedSpawnLocation());
@@ -63,11 +66,7 @@ public class Home implements CommandExecutor {
                     e.printStackTrace();
                 }
                 return true;
-            } else {
-                sender.sendMessage("§eYou have no set spawn. Right-Click a bed to set your spawn.");
-                cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
             }
-
         } else
             sender.sendMessage("§eYou can't teleport home for another " + (10 - ((System.currentTimeMillis() - cooldown.get(player.getUniqueId())) / 1000)) + " seconds!");
         return true;
