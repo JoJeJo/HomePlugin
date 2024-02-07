@@ -1,3 +1,4 @@
+/*
 package home.plugin.homeplugin2.Commands;
 
 import home.plugin.homeplugin2.HomePlugin2;
@@ -63,6 +64,30 @@ public class Home implements CommandExecutor {
                     Bukkit.getLogger().info("run 1");
                     long timeLeft = (delay - (System.currentTimeMillis() - startTime)) / 1000;
                     sender.sendMessage("§ATeleporting to home in " + timeLeft + " seconds...");
+                    if (timeLeft > 0) {
+                        sender.sendMessage("§ATeleporting to home in " + timeLeft + " seconds...");
+                        double location2X = player.getLocation().getX();
+                        double location2Y = player.getLocation().getY();
+                        double location2Z = player.getLocation().getZ();
+                        if (!(location1X == location2X)) {
+                            sender.sendMessage("§cYou moved! Teleport Canceled!");
+                            Bukkit.getLogger().info("run 2");
+                            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
+                            cancel();
+                        }
+                        if (!(location1Y == location2Y)) {
+                            sender.sendMessage("§cYou moved! Teleport Canceled!");
+                            Bukkit.getLogger().info("run 3");
+                            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
+                            cancel();
+                        }
+                        if (!(location1Z == location2Z)) {
+                            sender.sendMessage("§cYou moved! Teleport Canceled!");
+                            Bukkit.getLogger().info("run 4");
+                            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
+                            cancel();
+                        }
+                    }
                     if (timeLeft <= 0) {
                         sender.sendMessage("§ATeleporting to home in " + timeLeft + " seconds...");
                         double location2X = player.getLocation().getX();
@@ -104,3 +129,4 @@ public class Home implements CommandExecutor {
         return true;
     }
 }
+*/
