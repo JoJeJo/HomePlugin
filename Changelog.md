@@ -1,9 +1,16 @@
-Configurations coming soon.
-Messages when teleportation is canceled coming soon.
 --
 CHANGELOG
 --
-Feb 6 2024
+Feb 7 2024 v1.0
+- JOJEJO - Plugin cooldown fixed
+- JOJEJO - Delay fixed (No longer freezes server)
+- JOJEJO - Fixed check for damage
+- JOJEJO - Command still works if player heals during the delay
+- JOJEJO - Fixed check for movement
+
+
+
+Feb 6 2024 v0.2
 - JOJEJO - Added 5 second delay between command and teleportation
 - JOJEJO - Added check for damage during 5 second period
 - JOJEJO - Added check for a change in location during 5 second period
@@ -11,7 +18,7 @@ Feb 6 2024
 
 
 
-Feb 5 2024
+Feb 5 2024 v0.1
 - JOJEJO - Created /home command
 - JOJEJO - Created permissions
 - JOJEJO - Added cooldown feature
