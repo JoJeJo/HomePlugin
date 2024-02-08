@@ -61,7 +61,7 @@ public class Home implements CommandExecutor {
                     double location2Z = player.getLocation().getZ();
                     double PlayerHealth2 = player.getHealth();
                     sender.sendMessage("§eTeleporting in 5...");
-                    if (location1X == location2X || location1Y == location2Y || location1Z == location2Z) {
+                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
                         if (PlayerHealth1 <= PlayerHealth2) {
                             BukkitTask task = new BukkitRunnable() {
                                 @Override
@@ -71,7 +71,7 @@ public class Home implements CommandExecutor {
                                     double location2Z = player.getLocation().getZ();
                                     double PlayerHealth2 = player.getHealth();
                                     sender.sendMessage("§eTeleporting in 4...");
-                                    if (location1X == location2X || location1Y == location2Y || location1Z == location2Z) {
+                                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
                                         if (PlayerHealth1 <= PlayerHealth2) {
                                             BukkitTask task = new BukkitRunnable() {
                                                 @Override
@@ -81,7 +81,7 @@ public class Home implements CommandExecutor {
                                                     double location2Z = player.getLocation().getZ();
                                                     double PlayerHealth2 = player.getHealth();
                                                     sender.sendMessage("§eTeleporting in 3...");
-                                                    if (location1X == location2X || location1Y == location2Y || location1Z == location2Z) {
+                                                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
                                                         if (PlayerHealth1 <= PlayerHealth2) {
                                                             BukkitTask task = new BukkitRunnable() {
                                                                 @Override
@@ -91,7 +91,7 @@ public class Home implements CommandExecutor {
                                                                     double location2Z = player.getLocation().getZ();
                                                                     double PlayerHealth2 = player.getHealth();
                                                                     sender.sendMessage("§eTeleporting in 2...");
-                                                                    if (location1X == location2X || location1Y == location2Y || location1Z == location2Z) {
+                                                                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
                                                                         if (PlayerHealth1 <= PlayerHealth2) {
                                                                             BukkitTask task = new BukkitRunnable() {
                                                                                 @Override
@@ -101,7 +101,7 @@ public class Home implements CommandExecutor {
                                                                                     double location2Z = player.getLocation().getZ();
                                                                                     double PlayerHealth2 = player.getHealth();
                                                                                     sender.sendMessage("§eTeleporting in 1...");
-                                                                                    if (location1X == location2X || location1Y == location2Y || location1Z == location2Z) {
+                                                                                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
                                                                                         if (PlayerHealth1 <= PlayerHealth2) {
                                                                                             BukkitTask task = new BukkitRunnable() {
                                                                                                 @Override
@@ -110,7 +110,7 @@ public class Home implements CommandExecutor {
                                                                                                     double location2Y = player.getLocation().getY();
                                                                                                     double location2Z = player.getLocation().getZ();
                                                                                                     double PlayerHealth2 = player.getHealth();
-                                                                                                    if (location1X == location2X || location1Y == location2Y || location1Z == location2Z) {
+                                                                                                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
                                                                                                         if (PlayerHealth1 <= PlayerHealth2) {
                                                                                                             player.teleport(bedSpawn);
                                                                                                             sender.sendMessage("§AWelcome Home!");
