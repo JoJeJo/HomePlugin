@@ -13,9 +13,11 @@ import java.util.UUID;
 
 public class Home implements CommandExecutor {
     private final HashMap<UUID, Long> cooldown;
+
     public Home() {
         this.cooldown = new HashMap<UUID, Long>();
     }
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
@@ -47,161 +49,43 @@ public class Home implements CommandExecutor {
             return true;
         }
         if (!cooldown.containsKey(player.getUniqueId()) || System.currentTimeMillis() - cooldown.get(player.getUniqueId()) > 10000) {
-            double location1X = player.getLocation().getX();
-            double location1Y = player.getLocation().getY();
-            double location1Z = player.getLocation().getZ();
-            double PlayerHealth1 = player.getHealth();
             long interval = 1 * 20;
             BukkitTask task = new BukkitRunnable() {
 
                 @Override
                 public void run() {
-                    double location2X = player.getLocation().getX();
-                    double location2Y = player.getLocation().getY();
-                    double location2Z = player.getLocation().getZ();
-                    double PlayerHealth2 = player.getHealth();
-                    sender.sendMessage("§eTeleporting in 5...");
-                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
-                        if (PlayerHealth1 <= PlayerHealth2) {
-                            BukkitTask task = new BukkitRunnable() {
-                                @Override
-                                public void run() {
-                                    double location2X = player.getLocation().getX();
-                                    double location2Y = player.getLocation().getY();
-                                    double location2Z = player.getLocation().getZ();
-                                    double PlayerHealth2 = player.getHealth();
-                                    sender.sendMessage("§eTeleporting in 4...");
-                                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
-                                        if (PlayerHealth1 <= PlayerHealth2) {
-                                            BukkitTask task = new BukkitRunnable() {
-                                                @Override
-                                                public void run() {
-                                                    double location2X = player.getLocation().getX();
-                                                    double location2Y = player.getLocation().getY();
-                                                    double location2Z = player.getLocation().getZ();
-                                                    double PlayerHealth2 = player.getHealth();
-                                                    sender.sendMessage("§eTeleporting in 3...");
-                                                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
-                                                        if (PlayerHealth1 <= PlayerHealth2) {
-                                                            BukkitTask task = new BukkitRunnable() {
-                                                                @Override
-                                                                public void run() {
-                                                                    double location2X = player.getLocation().getX();
-                                                                    double location2Y = player.getLocation().getY();
-                                                                    double location2Z = player.getLocation().getZ();
-                                                                    double PlayerHealth2 = player.getHealth();
-                                                                    sender.sendMessage("§eTeleporting in 2...");
-                                                                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
-                                                                        if (PlayerHealth1 <= PlayerHealth2) {
-                                                                            BukkitTask task = new BukkitRunnable() {
-                                                                                @Override
-                                                                                public void run() {
-                                                                                    double location2X = player.getLocation().getX();
-                                                                                    double location2Y = player.getLocation().getY();
-                                                                                    double location2Z = player.getLocation().getZ();
-                                                                                    double PlayerHealth2 = player.getHealth();
-                                                                                    sender.sendMessage("§eTeleporting in 1...");
-                                                                                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
-                                                                                        if (PlayerHealth1 <= PlayerHealth2) {
-                                                                                            BukkitTask task = new BukkitRunnable() {
-                                                                                                @Override
-                                                                                                public void run() {
-                                                                                                    double location2X = player.getLocation().getX();
-                                                                                                    double location2Y = player.getLocation().getY();
-                                                                                                    double location2Z = player.getLocation().getZ();
-                                                                                                    double PlayerHealth2 = player.getHealth();
-                                                                                                    if (location1X == location2X && location1Y == location2Y && location1Z == location2Z) {
-                                                                                                        if (PlayerHealth1 <= PlayerHealth2) {
-                                                                                                            player.teleport(bedSpawn);
-                                                                                                            sender.sendMessage("§AWelcome Home!");
-                                                                                                            cooldown.put(player.getUniqueId(), System.currentTimeMillis());
-                                                                                                        }
-                                                                                                        else{
-                                                                                                            sender.sendMessage("§cYou can not use /home while taking damage! Teleport Canceled!!");
-                                                                                                            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                                                                                                            cancel();
-                                                                                                        }
-                                                                                                    }
-                                                                                                    else {
-                                                                                                        sender.sendMessage("§cYou moved! Teleport Canceled!!");
-                                                                                                        cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                                                                                                        cancel();
-                                                                                                    }
-                                                                                                }
-                                                                                            }.runTaskLater(HomePlugin2.getInstance(), interval);
-                                                                                        }
-                                                                                        else{
-                                                                                            sender.sendMessage("§cYou can not use /home while taking damage! Teleport Canceled!!");
-                                                                                            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                                                                                            cancel();
-                                                                                        }
-                                                                                    }
-                                                                                    else {
-                                                                                        sender.sendMessage("§cYou moved! Teleport Canceled!!");
-                                                                                        cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                                                                                        cancel();
-                                                                                    }
-                                                                                }
-                                                                            }.runTaskLater(HomePlugin2.getInstance(), interval);
-                                                                        }
-                                                                        else{
-                                                                            sender.sendMessage("§cYou can not use /home while taking damage! Teleport Canceled!!");
-                                                                            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                                                                            cancel();
-                                                                        }
-                                                                    }
-                                                                    else {
-                                                                        sender.sendMessage("§cYou moved! Teleport Canceled!!");
-                                                                        cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                                                                        cancel();
-                                                                    }
-                                                                }
-                                                            }.runTaskLater(HomePlugin2.getInstance(), interval);
-                                                        }
-                                                        else{
-                                                            sender.sendMessage("§cYou can not use /home while taking damage! Teleport Canceled!!");
-                                                            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                                                            cancel();
-                                                        }
-                                                    }
-                                                    else {
-                                                        sender.sendMessage("§cYou moved! Teleport Canceled!!");
-                                                        cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                                                        cancel();
-                                                    }
-                                                }
-                                            }.runTaskLater(HomePlugin2.getInstance(), interval);
-                                        } else {
-                                            sender.sendMessage("§cYou can not use /home while taking damage! Teleport Canceled!!");
-                                            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                                            cancel();
-                                        }
-                                    } else {
-                                        sender.sendMessage("§cYou moved! Teleport Canceled!!");
-                                        cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                                        cancel();
-                                    }
-                                }
-                            }.runTaskLater(HomePlugin2.getInstance(), interval);
-                        }
-                        else {
+                    double location1X = player.getLocation().getX();
+                    double location1Y = player.getLocation().getY();
+                    double location1Z = player.getLocation().getZ();
+                    double PlayerHealth1 = player.getHealth();
+                    for (int i=0; i<5; i++) {
+                        double location2X = player.getLocation().getX();
+                        double location2Y = player.getLocation().getY();
+                        double location2Z = player.getLocation().getZ();
+                        double PlayerHealth2 = player.getHealth();
+                        sender.sendMessage("§eTeleporting in "+ (5-i) +"...");
+                        if (PlayerHealth2 < PlayerHealth1) {
                             sender.sendMessage("§cYou can not use /home while taking damage! Teleport Canceled!!");
                             cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
                             cancel();
                         }
+                        if (location1X != location2X || location1Y != location2Y || location1Z != location2Z) {
+                            sender.sendMessage("§cYou can not use /home while moving! Teleport Canceled!!");
+                            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
+                            cancel();
+                        }
                     }
-                    else {
-                        sender.sendMessage("§cYou moved! Teleport Canceled!!");
-                        cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
-                        cancel();
-                    }
+                    player.teleport(bedSpawn);
+                    sender.sendMessage("§AWelcome Home!");
+                    cooldown.put(player.getUniqueId(), System.currentTimeMillis());
                 }
+
             }.runTaskLater(HomePlugin2.getInstance(), interval);
         }
-        else {
-            sender.sendMessage("§eYou can't teleport home for another " + (10 - ((System.currentTimeMillis() - cooldown.get(player.getUniqueId())) / 1000)) + " seconds!");
-            return false;
+        else{
+                sender.sendMessage("§eYou can't teleport home for another " + (10 - ((System.currentTimeMillis() - cooldown.get(player.getUniqueId())) / 1000)) + " seconds!");
+                return false;
+            }
+            return true;
         }
-        return true;
     }
-}
