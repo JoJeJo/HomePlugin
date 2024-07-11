@@ -1,6 +1,9 @@
 --
 CHANGELOG
 --
+Jul 8 2024 v0.1
+- JOJEJO - Removed Nested if statements
+
 Feb 7 2024 v1.0
 - JOJEJO - Plugin cooldown fixed
 - JOJEJO - Delay fixed (No longer freezes server)
