@@ -27,27 +27,43 @@ public class Home implements CommandExecutor {
         Player player = (Player) sender;
         UUID playerUUID = player.getUniqueId();
         Location bedSpawn = player.getBedSpawnLocation();
+        // Checks if player has no bed
         if (player.getBedSpawnLocation() == null) {
             sender.sendMessage("§cYou have no set spawn. Right-Click a bed to set your spawn.");
             cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
             return true;
         }
+        // Checks if player is in Nether
         if (player.getWorld().getName().equals("world_nether")) {
             sender.sendMessage("§cYou can not use /home in the Nether.");
             cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
             return true;
         }
-        // Can not use command in End
+        // Checks if player is in Rift
+        if(player.getWorld().getName().equals("RiftEvent")) {
+            sender.sendMessage("§cYou can not use /home in the Rift.");
+            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
+            return true;
+        }
+        // Checks if player is in End
         if (player.getWorld().getName().equals("world_the_end")) {
             sender.sendMessage("§cYou can not use /home in the End.");
             cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
             return true;
         }
+        // Checks if spawn is in the Nether
         if (player.getBedSpawnLocation().getWorld().getName().equals("world_nether")) {
-            sender.sendMessage("§cYou can not teleport to a home in the nether.");
+            sender.sendMessage("§cYou can not teleport to a home in the Nether.");
             cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
             return true;
         }
+        // Checks if spawn is in the End
+        if (player.getBedSpawnLocation().getWorld().getName().equals("world_the_end")) {
+            sender.sendMessage("§cYou can not teleport to a home in the End.");
+            cooldown.put(player.getUniqueId(), System.currentTimeMillis() - 10000);
+            return true;
+        }
+        // Checks if player has a valid cooldown
         if (!cooldown.containsKey(player.getUniqueId()) || System.currentTimeMillis() - cooldown.get(player.getUniqueId()) > 10000) {
             long interval = 1 * 20;
             BukkitTask task = new BukkitRunnable() {
@@ -82,7 +98,7 @@ public class Home implements CommandExecutor {
 
             }.runTaskLater(HomePlugin2.getInstance(), interval);
         }
-        else{
+        else {
                 sender.sendMessage("§eYou can't teleport home for another " + (10 - ((System.currentTimeMillis() - cooldown.get(player.getUniqueId())) / 1000)) + " seconds!");
                 return false;
             }
